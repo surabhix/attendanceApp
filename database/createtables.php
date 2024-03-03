@@ -139,35 +139,45 @@ catch(PDOException $o)
 {
 echo("<br>attendance_details not created");
 }
+$c="delete from student_details";
+$s=$dbo->conn->prepare($c);
+  try{
+    $s->execute();
+    echo("<br> all students deleted");
+  }
+  catch(PDOException $o)
+  {
+    echo("<br>duplicate entry");
+  }
 
 $c="insert into student_details
 (id,roll_no,name)
 values
-  (1,'CSB21001','BHASKAR JYOTI SUNGHA'),
-  (2,'CSB21002','PALLABI BORA'),
-  (3,'CSB21003','PRERONA SAIKIA'),
-  (4,'CSB21004','SWAPNIL DEB'),
-  (5,'CSB21005','AONEK AMARTYA KHYON HAZARIKA'),
-  (6,'CSB21006','ANTARIP LAHKAR'),
-  (7,'CSB21007','GURVINDRA SINGH'),
-  (8,'CSB21008','DEBANGANA SAHA'),
-  (9,'CSB21009','PRANAY BHARAT GAIKWAD'),
-  (10,'CSB21010','ROMIT KUMAR'),
-  (11,'CSB21011','TAMANNA NEGER'),
-  (12,'CSB21012','ARNAB CHAKRABORTY'),
+  (1,'1RN21IS123','ROSHNY A KUMAR'),
+  (2,'1RN21IS124','RUCHIR ROHAN TRIMURTHY'),
+  (3,'1RN21IS125','S R ABHIRAM ANANDH'),
+  (4,'1RN21IS126','S R RAKSHITA'),
+  (5,'1RN21IS127','SAHANA PARAMESHWAR NAIK'),
+  (6,'1RN21IS128','SAMSKRUTHI C'),
+  (7,'1RN21IS129','SAMVED C MOULI'),
+  (8,'1RN21IS130','SANDRA PAUL'),
+  (9,'1RN21IS131','SANJANA TS'),
+  (10,'1RN21IS132','SANJANA UPADHYAYA'),
+  (11,'1RN21IS133','SANJANA VS'),
+  (12,'1RN21IS134','SANKALPA GOWRI'),
 
-  (13,'CSM21001','UTTARA SAHA'),
-  (14,'CSM21002','PROBAL DEEP SAIKIA'),
-  (15,'CSM21003','SUBHROJIT SAIKIA'),
-  (16,'CSM21004','GURLEEN KAUR'),
-  (17,'CSM21005','RACHNA HARLALKA'),
-  (18,'CSM21006','CHITRANKANA BHOWMIK'),
-  (19,'CSM21007','HRITTIK BARUAH'),
-  (20,'CSM21008','PRAGYANUR SAIKIA'),
-  (21,'CSM21009','BIKRAM UPADHYAYA'),
-  (22,'CSM21010','SHABBIR AHMAD'),
-  (23,'CSM21011','ARNAB BISWAS'),
-  (24,'CSM21012','NAROTTAM GOGOI')";
+  (13,'1RN21IS135','SANSKRUTHI B S'),
+  (14,'1RN21IS136','SANTOSH V'),
+  (15,'1RN21IS137','SATHWIK C M'),
+  (16,'1RN21IS138','SHABAZ M NADAF'),
+  (17,'1RN21IS139','SHASHANK GN'),
+  (18,'1RN21IS140','SHASHANK MP'),
+  (19,'1RN21IS141','SHASHANK S'),
+  (20,'1RN21IS142','SHASHANK VH'),
+  (21,'1RN21IS143','SHREYAS G ATHREYA'),
+  (22,'1RN21IS144','SHRIRAM C'),
+  (23,'1RN21IS145','SHRISTI JAIN'),
+  (24,'1RN21IS146','SHUBHAM')";
 
   $s=$dbo->conn->prepare($c);
   try{
@@ -177,17 +187,26 @@ values
   {
     echo("<br>duplicate entry");
   }
-
+  $c="delete from faculty_details";
+  $s=$dbo->conn->prepare($c);
+    try{
+      $s->execute();
+      echo("<br> all teachers deleted");
+    }
+    catch(PDOException $o)
+    {
+      echo("<br>duplicate entry");
+    }
 
   $c="insert into faculty_details
 (id,user_name,password,name)
 values
-(1,'rcb','123','Ram Charan Baishya'),
-(2,'arindam','123','Arindam Karmakar'),
-(3,'pal','123','Pallabi'),
-(4,'anuj','123','Anuj Agarwal'),
-(5,'mriganka','123','Mriganka Sekhar'),
-(6,'manooj','123','Manooj Hazarika')";
+(1,'SL','123','SURESH L'),
+(2,'SN','123','SHYLA N'),
+(3,'JBN','123','JAGADEESHA B N'),
+(4,'KB','123','KAVITHA B'),
+(5,'AG','123','AISHWARYA G'),
+(6,'AU','123','ARUNA U')";
 
   $s=$dbo->conn->prepare($c);
   try{
@@ -197,13 +216,22 @@ values
   {
     echo("<br>duplicate entry");
   }
-
+  $c="delete from session_details";
+  $s=$dbo->conn->prepare($c);
+    try{
+      $s->execute();
+      echo("<br> all sessions deleted");
+    }
+    catch(PDOException $o)
+    {
+      echo("<br>duplicate entry");
+    }
 
   $c="insert into session_details
 (id,year,term)
 values
-(1,2023,'SPRING SEMESTER'),
-(2,2023,'AUTUMN SEMESTER')";
+(1,2023,'4th SEM'),
+(2,2023,'5TH SEM')";
 
   $s=$dbo->conn->prepare($c);
   try{
@@ -213,17 +241,26 @@ values
   {
     echo("<br>duplicate entry");
   }
-
+  $c="delete from course_details";
+  $s=$dbo->conn->prepare($c);
+    try{
+      $s->execute();
+      echo("<br> all courses deleted");
+    }
+    catch(PDOException $o)
+    {
+      echo("<br>duplicate entry");
+    }
 
   $c="insert into course_details
 (id,title,code,credit)
 values
-  (1,'Database management system lab','CO321',2),
-  (2,'Pattern Recognition','CO215',3),
-  (3,'Data Mining & Data Warehousing','CS112',4),
-  (4,'ARTIFICIAL INTELLIGENCE','CS670',4),
-  (5,'THEORY OF COMPUTATION ','CO432',3),
-  (6,'DEMYSTIFYING NETWORKING ','CS673',1)";
+  (1,'Database management system ','21CS53',3),
+  (2,'Computer Networks','21CS52',4),
+  (3,'Automata Theory And Compiler Design','21CS51',3),
+  (4,'ARTIFICIAL INTELLIGENCE','21CS54',3),
+  (5,'Angular JS and Node JS ','21CSl581',1),
+  (6,'Research Methodology ','21CS56',1)";
   $s=$dbo->conn->prepare($c);
   try{
     $s->execute();
